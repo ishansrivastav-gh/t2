@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Inventory & Sales Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Smart Inventory & Sales Dashboard</h1>
+      <p>Small Business Management & Analytics Platform</p>
+    </header>
+
+    <!-- Metrics Cards -->
+    <section class="cards">
+      <div class="card">
+        <h3>Total Products</h3>
+        <p id="total-products">0</p>
+      </div>
+      <div class="card">
+        <h3>Total Stock Value</h3>
+        <p id="total-stock-value">$0.00</p>
+      </div>
+      <div class="card">
+        <h3>Total Sales</h3>
+        <p id="total-sales-amount">$0.00</p>
+      </div>
+      <div class="card warning">
+        <h3>Low Stock Alerts</h3>
+        <p id="low-stock-count">0</p>
+      </div>
+    </section>
+
+    <!-- Action Forms -->
+    <section class="grid-layout">
+      <!-- Add Product Form -->
+      <div class="panel">
+        <h2>+ Add New Product</h2>
+        <form id="product-form" onsubmit="handleAddProduct(event)">
+          <input type="text" id="p-name" placeholder="Product Name" required>
+          <input type="text" id="p-category" placeholder="Category (e.g., Electronics)" required>
+          <input type="number" id="p-price" placeholder="Price ($)" step="0.01" min="0.1" required>
+          <input type="number" id="p-stock" placeholder="Initial Stock" min="0" required>
+          <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+      </div>
+
+      <!-- Record Sale Form -->
+      <div class="panel">
+        <h2>Record New Sale</h2>
+        <form id="sale-form" onsubmit="handleRecordSale(event)">
+          <select id="s-product" required>
+            <option value="">Select Product...</option>
+          </select>
+          <input type="number" id="s-qty" placeholder="Quantity Sold" min="1" required>
+          <button type="submit" class="btn btn-success">Complete Sale</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Search & Filter Bar -->
+    <section class="controls">
+      <input type="text" id="search-bar" placeholder="Search product by name..." oninput="filterProducts()">
+      <select id="category-filter" onchange="filterProducts()">
+        <option value="ALL">All Categories</option>
+      </select>
+    </section>
+
+    <!-- Inventory Table -->
+    <section class="panel">
+      <h2>Inventory Status</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="inventory-table-body"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
