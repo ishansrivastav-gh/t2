@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "id": "P101",
+      "name": "Wireless Mouse",
+      "category": "Electronics",
+      "price": 25,
+      "stock": 15,
+      "lowStockThreshold": 5
+    },
+    {
+      "id": "P102",
+      "name": "Mechanical Keyboard",
+      "category": "Electronics",
+      "price": 85,
+      "stock": 3,
+      "lowStockThreshold": 5
+    },
+    {
+      "id": "P103",
+      "name": "Coffee Mug",
+      "category": "Merchandise",
+      "price": 12,
+      "stock": 40,
+      "lowStockThreshold": 10
+    }
+  ],
+  "sales": []
+}
